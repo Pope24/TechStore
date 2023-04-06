@@ -11,6 +11,12 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(columnDefinition = "varchar(255)")
+    private String nameProduct;
+    @Column(columnDefinition = "text")
+    private String image;
+    @Column(columnDefinition = "double")
+    private Double price;
+    @Column(columnDefinition = "varchar(255)")
     private String screenTechnology;
     @Column(columnDefinition = "varchar(255)")
     private String operatingSystem;
@@ -44,8 +50,11 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String screenTechnology, String operatingSystem, String chip, Double cpu_speed, Integer ram, Integer capacity, Integer pin, String material, Double weight, Double size, String description, String timePublic, Manufacturer manufacturer, List<Utilities> utilities) {
+    public Product(int id, String nameProduct, String image, Double price, String screenTechnology, String operatingSystem, String chip, Double cpu_speed, Integer ram, Integer capacity, Integer pin, String material, Double weight, Double size, String description, String timePublic, Manufacturer manufacturer, List<Utilities> utilities, Categories categories) {
         this.id = id;
+        this.nameProduct = nameProduct;
+        this.image = image;
+        this.price = price;
         this.screenTechnology = screenTechnology;
         this.operatingSystem = operatingSystem;
         this.chip = chip;
@@ -60,6 +69,7 @@ public class Product {
         this.timePublic = timePublic;
         this.manufacturer = manufacturer;
         this.utilities = utilities;
+        this.categories = categories;
     }
 
     public int getId() {
@@ -68,6 +78,22 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNameProduct() {
+        return nameProduct;
+    }
+
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
+    }
+
+    public Categories getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Categories categories) {
+        this.categories = categories;
     }
 
     public String getScreenTechnology() {
@@ -180,5 +206,21 @@ public class Product {
 
     public void setUtilities(List<Utilities> utilities) {
         this.utilities = utilities;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
